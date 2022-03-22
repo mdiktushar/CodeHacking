@@ -1,6 +1,19 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Vendor
+|--------------------------------------------------------------------------
+*/
 use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Controllers
+|--------------------------------------------------------------------------
+*/
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminUsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +32,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::resource('admin/users', AdminUsersController::class);
