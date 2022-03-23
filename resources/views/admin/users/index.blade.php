@@ -9,6 +9,8 @@
           <th>ID</th>
           <th>Name</th>
           <th>Email</th>
+          <th>Role</th>
+          <th>Activation</th>
           <th>Joined</th>
           <th>Info Update</th>
         </tr>
@@ -20,6 +22,14 @@
               <td>{{$user->id}}</td>
               <td>{{$user->name}}</td>
               <td>{{$user->email}}</td>
+              <td>{{$user->role->name}}</td>
+              <td>
+                @if ($user->is_active)
+                  {{"On"}}
+                @else
+                  {{"Off"}}
+                @endif
+              </td>
               <td>{{$user->created_at->diffForHumans()}}</td>
               <td>{{$user->updated_at->diffForHumans()}}</td>
             </tr>
