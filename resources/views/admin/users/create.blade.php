@@ -49,4 +49,7 @@
         
         <button type="submit" class="btn btn-primary">Create</button>
       </form>
+
+      @include('includes.form_error')
+
 @endsection
