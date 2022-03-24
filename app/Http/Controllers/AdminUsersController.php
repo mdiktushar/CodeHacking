@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 // model
 use App\Models\User;
+use App\Models\Role;
 
 class AdminUsersController extends Controller
 {
@@ -29,7 +30,8 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
-        return view('admin.users.create');
+        $roles = Role::all();
+        return view('admin.users.create', ['roles' => $roles]);
     }
 
     /**
@@ -41,6 +43,7 @@ class AdminUsersController extends Controller
     public function store(Request $request)
     {
         //
+        
         return $request->all();
     }
 
