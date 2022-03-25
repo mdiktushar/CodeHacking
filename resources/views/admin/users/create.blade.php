@@ -40,9 +40,9 @@
             </label>
           </div>
         </div>
-
+        {{-- file --}}
         <div class="form-group">
-          <label for="file">Photo</label>
+          <label for="photo_id">Photo</label>
           <input type="file" class="form-control" name="photo_id" id="photo_id">
         </div>
 

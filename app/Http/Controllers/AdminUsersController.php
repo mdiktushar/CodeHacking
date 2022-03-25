@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 // model
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Photo;
 
 // requerts
 use App\Http\Requests\UsersRequest;
@@ -46,8 +47,14 @@ class AdminUsersController extends Controller
     public function store(UsersRequest $request)
     {
         //
-        User::create($request->all());
-        return redirect('admin/users');
+        // User::create($request->all());
+        // return redirect('admin/users');
+
+        $input = $request->all();
+        if ($request->file('photo_id')) {
+            return 'phpto exist';
+        }
+
         // return $request->all();
     }
 

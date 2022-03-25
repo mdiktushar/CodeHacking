@@ -50,4 +50,10 @@ class User extends Authenticatable
         # code...
         return $this->belongsTo(Role::class);
     }
+
+    public function photo(Type $var = null)
+    {
+        # code...
+        return $this->belongsTo(Photo::class);
+    }
 }
