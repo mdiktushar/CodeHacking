@@ -51,9 +51,17 @@ class AdminUsersController extends Controller
         // return redirect('admin/users');
 
         $input = $request->all();
-        if ($request->file('photo_id')) {
-            return 'phpto exist';
+        if ($file = $request->file('photo_id')) {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('image', $name);
+            $photo =  Photo::create(['file'=>$name]);
+
+            $input['photo_id'] = $photo->id;
         }
+
+        $input['password']= bcrypt($request->password);
+
+        User::create($input);
 
         // return $request->all();
     }
