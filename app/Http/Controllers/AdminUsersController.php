@@ -46,10 +46,6 @@ class AdminUsersController extends Controller
      */
     public function store(UsersRequest $request)
     {
-        //
-        // User::create($request->all());
-        // return redirect('admin/users');
-
         $input = $request->all();
         if ($file = $request->file('photo_id')) {
             $name = time() . $file->getClientOriginalName();
@@ -63,7 +59,7 @@ class AdminUsersController extends Controller
 
         User::create($input);
 
-        // return $request->all();
+        return redirect('/admin/users');
     }
 
     /**
