@@ -22,9 +22,9 @@
             <tr>
               <td>{{$user->id}}</td>
               <td>
-                <img height="50px" width="50px" src={{$user->photo ? $user->photo->file : 'No Image'}} alt="" srcset="">
+                <img height="50px" width="50px" src={{$user->photo ? $user->photo->file : 'https://via.placeholder.com/150'}} alt="" srcset="">
               </td>
-              <td>{{$user->name}}</td>
+              <td><a href={{route('users.edit', $user->id)}}>{{$user->name}}</a></td>
               <td>{{$user->email}}</td>
               <td>{{$user->role->name}}</td>
               <td>
