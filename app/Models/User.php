@@ -56,4 +56,21 @@ class User extends Authenticatable
         # code...
         return $this->belongsTo(Photo::class);
     }
+
+    public function setPasswordAttribute($password)
+    {
+        # code...
+        if ($password) {
+            $this -> attributes['password'] = bcrypt($password);
+        }
+    }
+
+    public function isAdmin(Type $var = null)
+    {
+        # code...
+        if ($this->role->name == 'administrator' && $this->is_active == 1) {
+            return true;
+        }
+        return false;
+    }
 }

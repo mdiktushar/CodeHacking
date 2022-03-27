@@ -2,11 +2,16 @@
 
 @section('content')
 <div class="col-sm-3">
+  @if (session('notification'))
+    <div class = 'alert alert-success'>
+        {{session('notification')}}
+    </div>
+  @endif
   <h1>Profiel</h1>
   {{-- image --}}
   <div class="from-group">
-    <img height="150px" width="150px" src={{$user->photo ? $user->photo->file : 'https://via.placeholder.com/150'}} alt="" srcset="">
-  </div>
+    <img height="150px" width="150px" src={{$user->photo ? 'http://127.0.0.1:8000'.$user->photo->file : 'https://via.placeholder.com/150'}} alt="" srcset="">
+  </div>''
 </div>
 <div class="col-sm-9">
   <form action={{route('users.update', $user->id)}} method="POST" enctype="multipart/form-data">
@@ -80,7 +85,13 @@
         <input type="password" class="form-control" name="password" id="password">
       </div>
       
-      <button type="submit" class="btn btn-primary">Create</button>
+      <button type="submit" class="btn btn-primary">Edit</button>
+  </form>
+  <br>
+  <form action={{route('users.destroy', $user->id) }} method="Post">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger">Delete</button>
   </form>
   @include('includes.form_error')
 </div>

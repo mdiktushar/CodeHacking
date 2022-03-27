@@ -2,6 +2,11 @@
 
 @section('content')
     <h1>Users</h1>
+    @if (session('notification'))
+      <div class = 'alert alert-success'>
+          {{session('notification')}}
+      </div>
+    @endif
     
     <table class="table table-condensed">
       <thead>
@@ -22,7 +27,7 @@
             <tr>
               <td>{{$user->id}}</td>
               <td>
-                <img height="50px" width="50px" src={{$user->photo ? $user->photo->file : 'https://via.placeholder.com/150'}} alt="" srcset="">
+                <img height="50px" width="50px" src={{$user->photo ? 'http://127.0.0.1:8000'.$user->photo->file : 'https://via.placeholder.com/150'}} alt="" srcset="">
               </td>
               <td><a href={{route('users.edit', $user->id)}}>{{$user->name}}</a></td>
               <td>{{$user->email}}</td>
