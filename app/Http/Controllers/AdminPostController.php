@@ -25,6 +25,7 @@ class AdminPostController extends Controller
     public function create()
     {
         //
+        return view('admin.posts.create');
     }
 
     /**
