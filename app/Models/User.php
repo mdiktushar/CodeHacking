@@ -57,13 +57,13 @@ class User extends Authenticatable
         return $this->belongsTo(Photo::class);
     }
 
-    public function setPasswordAttribute($password)
-    {
-        # code...
-        if ($password) {
-            $this -> attributes['password'] = bcrypt($password);
-        }
-    }
+    // public function setPasswordAttribute($password)
+    // {
+    //     # code...
+    //     if ($password) {
+    //         $this -> attributes['password'] = bcrypt($password);
+    //     }
+    // }
 
     public function isAdmin(Type $var = null)
     {
