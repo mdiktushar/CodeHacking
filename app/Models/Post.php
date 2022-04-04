@@ -9,4 +9,23 @@ class Post extends Model
 {
     protected $guarded = [];
     use HasFactory;
+
+
+    public function user(Type $var = null)
+    {
+        # code...
+        return $this->belongsTo(User::class);
+    }
+
+    public function photo(Type $var = null)
+    {
+        # code...
+        return $thsi->belongsTo(Photo::class);
+    }
+
+    public function category(Type $var = null)
+    {
+        # code...
+        return $thsi->belongsTo(Photo::class);
+    }
 }

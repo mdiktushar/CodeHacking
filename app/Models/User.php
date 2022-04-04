@@ -73,4 +73,10 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function posts(Type $var = null)
+    {
+        # code...
+        return $this->hasMany(Post::class);
+    }
 }
