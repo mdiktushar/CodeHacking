@@ -11,7 +11,7 @@
   {{-- image --}}
   <div class="from-group">
     <img height="150px" width="150px" src={{$user->photo ? 'http://127.0.0.1:8000'.$user->photo->file : 'https://via.placeholder.com/150'}} alt="" srcset="">
-  </div>''
+  </div>
 </div>
 <div class="col-sm-9">
   <form action={{route('users.update', $user->id)}} method="POST" enctype="multipart/form-data">
@@ -85,7 +85,7 @@
         <input type="password" class="form-control" name="password" id="password">
       </div>
       
-      <button type="submit" class="btn btn-primary">Edit</button>
+      <button type="submit" class="btn btn-primary">Update</button>
   </form>
   <br>
   <form action={{route('users.destroy', $user->id) }} method="Post">
