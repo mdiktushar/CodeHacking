@@ -14,9 +14,10 @@
             <div class="form-group">
                 <label for="category_id" >Categorysion</label>
                 <select class="form-control" id="category_id" name="category_id">
-                  <option value="None">None</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
+                  <option value={{null}}>Select</option>
+                  @foreach ($categorys as $category)
+                    <option value={{$category->id}}>{{$category->name}}</option>
+                  @endforeach
                 </select>
 
             <div class="form-group">

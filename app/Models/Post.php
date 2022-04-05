@@ -20,12 +20,12 @@ class Post extends Model
     public function photo(Type $var = null)
     {
         # code...
-        return $thsi->belongsTo(Photo::class);
+        return $this->belongsTo(Photo::class);
     }
 
     public function category(Type $var = null)
     {
         # code...
-        return $thsi->belongsTo(Photo::class);
+        return $this->belongsTo(Category::class);
     }
 }

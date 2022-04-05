@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Role;
 use App\Models\Photo;
 use App\Models\Post;
+use App\Models\Category;
 
 class AdminPostController extends Controller
 {
@@ -34,7 +35,7 @@ class AdminPostController extends Controller
     public function create()
     {
         //
-        return view('admin.posts.create');
+        return view('admin.posts.create', ['categorys' => Category::all()]);
     }
 
     /**
