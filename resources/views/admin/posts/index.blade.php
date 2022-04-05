@@ -24,7 +24,7 @@
             <td>{{$post->user->name}}</td>
             <td>{{$post->category ? $post->category->name : 'Uncategorised'}}</td>
             <td>{{$post->title}}</td>
-            <td>{{$post->body}}</td>
+            <td><a href={{ route('post.edit', $post->id) }}>{{($post->body)}}</a></td>
             <td>{{$post->created_at->diffForHumans()}}</td>
             <td>{{$post->updated_at->diffForHumans()}}</td>
         </tr>
