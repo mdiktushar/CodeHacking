@@ -3,7 +3,7 @@
 @section('content')
     <div>
         <h1>Create Posts</h1>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action={{route('post.store')}} method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <div class="form-group">
@@ -31,6 +31,8 @@
 
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
+          <br><br>
+          @include('includes.form_error')
     </div>
     
 @endsection
