@@ -46,5 +46,14 @@
           <br><br>
           @include('includes.form_error')
     </div>
+
+    <div>
+      <form action={{route('post.destroy', $post->id)}} method="post" enctype="multipart/form-data">
+        @csrf
+        @method('DELETE')
+        <button class="btn btn-danger" type="submit">Delete</button>
+      </form>
+    </div>
+    <br><br>
     
 @endsection

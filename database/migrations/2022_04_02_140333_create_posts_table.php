@@ -14,12 +14,14 @@ return new class extends Migration {
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->index();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->integer('category_id')->unsigned()->index();
             $table->integer('photo_id')->unsigned()->index();
             $table->string('title');
             $table->string('body');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
