@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\AdminCategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +43,5 @@ Route::get('/admin', function () {
 Route::group(['middleware'=>'admin'], function () {
     Route::resource('/admin/users', AdminUsersController::class);
     Route::resource('/admin/post', AdminPostController::class);
+    Route::resource('/admin/categories', AdminCategoriesController::class);
 });
