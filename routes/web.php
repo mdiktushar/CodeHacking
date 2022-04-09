@@ -16,6 +16,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AdminCategoriesController;
+use App\Http\Controllers\AdminMediaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +45,5 @@ Route::group(['middleware'=>'admin'], function () {
     Route::resource('/admin/users', AdminUsersController::class);
     Route::resource('/admin/post', AdminPostController::class);
     Route::resource('/admin/categories', AdminCategoriesController::class);
+    Route::resource('/admin/media', AdminMediaController::class);
 });
