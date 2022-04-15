@@ -17,6 +17,8 @@ use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AdminCategoriesController;
 use App\Http\Controllers\AdminMediaController;
+use App\Http\Controllers\PostCommentsController;
+use App\Http\Controllers\CommentRepliesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/post/{id}', [AdminPostController::class, 'post'])->name('home.post');
 
 Route::get('/admin', function () {
     return view('admin.index');
