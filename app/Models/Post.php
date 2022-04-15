@@ -28,4 +28,10 @@ class Post extends Model
         # code...
         return $this->belongsTo(Category::class);
     }
+
+    public function comments(Type $var = null)
+    {
+        # code...
+        return $this->hasMany(Comment::class);
+    }
 }
