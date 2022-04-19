@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('post_id')->index();
             $table->integer('is_active')->default(0);
             $table->string('author');
+            $table->string('photo');
             $table->string('email');
             $table->text('body');
             $table->timestamps();

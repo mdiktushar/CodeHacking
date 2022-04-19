@@ -35,10 +35,15 @@
 
                 <!-- Comments Form -->
                 <div class="well">
+                    @if (session('comment_message'))
+                        <h3>{{session('comment_message')}}</h3>
+                    @endif
                     <h4>Leave a Comment:</h4>
-                    <form role="form">
+                    <form role="form" method="POST" action={{route('comments.store')}}>
+                        @csrf
+                        <input type="hidden" name="post_id" value={{$post->id}}>
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" id="body" name="body" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
