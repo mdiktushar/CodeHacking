@@ -18,4 +18,10 @@ class Comment extends Model
         # code...
         return $this->hasMany(CommentReply::class);
     }
+
+    public function post(Type $var = null)
+    {
+        # code...
+        return $this->belongsTo(Post::class);
+    }
 }
