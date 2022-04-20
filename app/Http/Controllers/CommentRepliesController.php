@@ -3,6 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+// model
+use App\Models\User;
+use App\Models\Role;
+use App\Models\Photo;
+use App\Models\Post;
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\CommentReply;
 
 class CommentRepliesController extends Controller
 {
@@ -35,6 +45,25 @@ class CommentRepliesController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+
+    public function createReply(Request $request)
+    {
+        //
+        $user = Auth::user();
+        $data = [
+            'comment_id' => $request->comment_id,
+            'author' => $user->name,
+            'email' => $user->email,
+            'body' => $request->body,
+            'photo' => $user->photo->file,
+
+        ];
+        CommentReply::create($data);
+        $request->session()->flash('reply_message', "replyed successifully weating for moderation");
+
+        return redirect()->back();
     }
 
     /**
