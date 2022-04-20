@@ -70,33 +70,38 @@
                             <h5>{{session('reply_message')}}</h5>
                         @endif
                         @foreach ($comment->replies as $reply)
+                            @if($reply->is_active == 1)
                                 <div class="media" style="padding-left: 70px">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object" height="30px" width="30px" src={{$reply->photo}} alt="">
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">{{$reply->author}}
-                                        <small>{{$reply->created_at->diffForHumans()}}</small>
-                                    </h4>
-                                    {{$reply->body}}
-                                </div>
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object" height="30px" width="30px" src={{$reply->photo}} alt="">
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">{{$reply->author}}
+                                            <small>{{$reply->created_at->diffForHumans()}}</small>
+                                        </h4>
+                                        {{$reply->body}}
+                                    </div>
 
-                                <div class="comment-reply-container">
-                                    <button class="toggle-reply btn btn-primary pull-right">Reply</button>
-                                    <div class="comment-reply">
-                                        <form action={{route('create.reply')}} method="post">
-                                            @csrf
-                                            <div class="form-group">
-                                                <label for="body">Reply</label>
-                                                <textarea class="form-control" id="body" name="body" rows="2"></textarea>
-                                            </div>
-                                            <input type="hidden" name="comment_id" value={{$comment->id}}>
-                                            <button type="submit" class="btn btn-primary">Reply</button>
-                                        </form>
-                                    </div>   
+                                    <div class="comment-reply-container">
+                                        <button class="toggle-reply btn btn-primary pull-right">Reply</button>
+                                        
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
+
+                                
                         @endforeach
+                        <div class="comment-reply">
+                            <form action={{route('create.reply')}} method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="body">Reply</label>
+                                    <textarea class="form-control" id="body" name="body" rows="2"></textarea>
+                                </div>
+                                <input type="hidden" name="comment_id" value={{$comment->id}}>
+                                <button type="submit" class="btn btn-primary">Reply</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
         @endforeach
