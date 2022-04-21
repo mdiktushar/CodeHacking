@@ -26,7 +26,7 @@
             <td>{{$post->user->name}}</td>
             <td>{{$post->category ? $post->category->name : 'Uncategorised'}}</td>
             <td>{{$post->title}}</td>
-            <td><a href={{route('home.post',$post->id)}}>{{($post->body)}}</a></td>
+            <td><a href={{route('home.post',$post->slug)}}>{{($post->body)}}</a></td>
             <td><a href={{route('comments.show', $post->id)}}>View Comment</a></td>
             <td>{{$post->created_at->diffForHumans()}}</td>
             <td>{{$post->updated_at->diffForHumans()}}</td>
@@ -34,4 +34,7 @@
         </tr>
         @endforeach
     </table>
+    <div>
+        {{$posts->render()}}
+    </div>
 @endsection

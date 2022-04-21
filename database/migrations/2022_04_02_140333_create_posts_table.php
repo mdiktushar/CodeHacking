@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->integer('photo_id')->unsigned()->index();
             $table->string('title');
             $table->string('body');
+            $table->string('slug')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
