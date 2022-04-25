@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+  @include('includes.tinyedior')
     <div>
         <h1>Create Posts</h1>
         <form action={{route('post.store')}} method="POST" enctype="multipart/form-data">
@@ -27,7 +28,8 @@
 
             <div class="form-group">
               <label for="body">Decription</label>
-              <textarea class="form-control" id="body" name="body" rows="8" cols="50" placeholder="Decription"></textarea>
+              <textarea class="form-control" id="body" name="body" placeholder="Decription"></textarea>
+              @include('includes.tinyedior1')
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
