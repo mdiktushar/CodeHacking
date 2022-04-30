@@ -19,6 +19,7 @@ use App\Http\Controllers\AdminCategoriesController;
 use App\Http\Controllers\AdminMediaController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\CommentRepliesController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,20 +31,13 @@ use App\Http\Controllers\CommentRepliesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/post/{id}', [AdminPostController::class, 'post'])->name('home.post');
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
 Route::group(['middleware'=>'admin'], function () {
     Route::resource('/admin/users', AdminUsersController::class);
